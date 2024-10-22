@@ -1,0 +1,42 @@
+<div class="container mt-4">
+  <h2>Warehouse</h2>
+  <button class="btn btn-primary mb-2" (click)="addWarehouse()">Add Warehouse</button>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Inventory Count</th>
+        <th>Active</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let warehouse of warehouses">
+        <td>{{ warehouse.name }}</td>
+        <td>{{ warehouse.location }}</td>
+        <td>{{ warehouse.inventoryCount }}</td>
+        <td>{{ warehouse.isActive ? 'Yes' : 'No' }}</td>
+        <td>
+          <button class="btn btn-info" (click)="viewWarehouse(warehouse.id)">View</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Pagination Controls -->
+  <nav aria-label="Page navigation">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a class="page-link" (click)="changePage(currentPage - 1)">Previous</a>
+      </li>
+      <li class="page-item" *ngFor="let page of totalPagesArray">
+        <a class="page-link" (click)="changePage(page)">{{ page }}</a>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <a class="page-link" (click)="changePage(currentPage + 1)">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>

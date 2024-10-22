@@ -1,0 +1,23 @@
+<div>
+  <h2>User Management</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.username }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+          <button (click)="onEditUser(user.id)">Edit</button>
+          <button (click)="onChangePassword(user.id)">Change Password</button>
+          <button *ngIf="user.role !== 'Admin'" (click)="onDeleteUser(user.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

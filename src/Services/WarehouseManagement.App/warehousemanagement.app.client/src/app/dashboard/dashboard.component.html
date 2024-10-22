@@ -1,0 +1,22 @@
+<div>
+  <h2>Warehouse Status</h2>
+  <ul>
+    <li *ngFor="let warehouse of warehouses">
+      {{ warehouse.name }}: {{ warehouse.inventoryCount }} items
+    </li>
+  </ul>
+
+  <h2>Top High Items</h2>
+  <ul>
+    <li *ngFor="let item of topHighItems">
+      {{ item.name }}: {{ item.quantity }} available
+    </li>
+  </ul>
+
+  <h2>Top Low Items</h2>
+  <ul>
+    <li *ngFor="let item of topLowItems">
+      {{ item.name }}: {{ item.quantity }} available
+    </li>
+  </ul>
+</div>
